@@ -16,9 +16,12 @@ export default class MainScreen extends Component {
     this.state = {
       onObjectTracking: false,
       info_statement: '우측으로 이동합니다.',
-      droneImage: require('../../../assets/img/droneCamera.png'),
+      droneImage: require('../../../assets/img/room.png'),
       userScreenButton: require('../../../assets/img/enlargement.png'),
       enlargeStatus: true,
+      stopStatus: false,
+      objectStatus: false,
+      warnStatus: false,
       infoColor: 'black',
     };
   }
@@ -107,70 +110,191 @@ export default class MainScreen extends Component {
                 style={{
                   flexDirection: 'row',
                 }}>
-                <TouchableOpacity
-                  style={{
-                    marginTop: 750,
-                    marginRight: 40,
-                    marginLeft: 40,
-                    width: 100,
-                    height: 100,
-                    borderRadius: 1000,
-                    backgroundColor: 'white',
-                    opacity: 0.7,
-                  }}
-                  onPress={() =>
-                    this.setState({info_statement: '드론이 착륙합니다.'})
-                  }>
-                  <Text
+                {!this.state.stopStatus && (
+                  <TouchableOpacity
                     style={{
-                      marginTop: 29,
-                      fontSize: 30,
-                      textAlign: 'center',
-                      fontWeight: 'bold',
-                    }}>
-                    STOP
-                  </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={{
-                    marginTop: 750,
-                    width: 100,
-                    height: 100,
-                    borderRadius: 1000,
-                    backgroundColor: 'white',
-                    opacity: 0.7,
-                  }}
-                  onPress={() => {
-                    this.setState({
-                      droneImage: require('../../../assets/img/drone_object.png'),
-                    });
-                  }}>
-                  <Text
+                      marginTop: 750,
+                      marginRight: 40,
+                      marginLeft: 40,
+                      width: 100,
+                      height: 100,
+                      borderRadius: 1000,
+                      backgroundColor: 'white',
+                      opacity: 0.7,
+                    }}
+                    onPress={() =>
+                      this.setState({
+                        stopStatus: true,
+                        info_statement: '드론이 착륙합니다.',
+                      })
+                    }>
+                    <Text
+                      style={{
+                        marginTop: 29,
+                        fontSize: 30,
+                        textAlign: 'center',
+                        fontWeight: 'bold',
+                      }}>
+                      STOP
+                    </Text>
+                  </TouchableOpacity>
+                )}
+                {this.state.stopStatus && (
+                  <TouchableOpacity
                     style={{
-                      marginTop: 29,
-                      fontSize: 30,
-                      textAlign: 'center',
-                      fontWeight: 'bold',
+                      marginTop: 750,
+                      marginRight: 40,
+                      marginLeft: 40,
+                      width: 100,
+                      height: 100,
+                      borderRadius: 1000,
+                      backgroundColor: 'white',
+                      opacity: 0.7,
+                    }}
+                    onPress={() =>
+                      this.setState({
+                        stopStatus: false,
+                        info_statement: '우측으로 이동합니다.',
+                      })
+                    }>
+                    <Text
+                      style={{
+                        marginTop: 29,
+                        fontSize: 30,
+                        textAlign: 'center',
+                        fontWeight: 'bold',
+                      }}>
+                      STOP
+                    </Text>
+                  </TouchableOpacity>
+                )}
+                {!this.state.objectStatus && (
+                  <TouchableOpacity
+                    style={{
+                      marginTop: 750,
+                      width: 100,
+                      height: 100,
+                      borderRadius: 1000,
+                      backgroundColor: 'white',
+                      opacity: 0.7,
+                    }}
+                    onPress={() => {
+                      this.setState({
+                        objectStatus: true,
+                        droneImage: require('../../../assets/img/room_object.png'),
+                      });
                     }}>
-                    Object Tracking
-                  </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={{
-                    marginTop: 750,
-                    width: 100,
-                    height: 100,
-                    borderRadius: 1000,
-
-                    opacity: 0.7,
-                  }}
-                  onPress={() => {
-                    this.setState({
-                      droneImage: require('../../../assets/img/warn_objectTracking.png'),
-                      info_statement: '2M 앞 장애물 주의',
-                      infoColor: 'red',
-                    });
-                  }}></TouchableOpacity>
+                    <Text
+                      style={{
+                        marginTop: 29,
+                        fontSize: 30,
+                        textAlign: 'center',
+                        fontWeight: 'bold',
+                      }}>
+                      Object Tracking
+                    </Text>
+                  </TouchableOpacity>
+                )}
+                {this.state.objectStatus && (
+                  <TouchableOpacity
+                    style={{
+                      marginTop: 750,
+                      width: 100,
+                      height: 100,
+                      borderRadius: 1000,
+                      backgroundColor: 'white',
+                      opacity: 0.7,
+                    }}
+                    onPress={() => {
+                      this.setState({
+                        objectStatus: false,
+                        droneImage: require('../../../assets/img/room.png'),
+                      });
+                    }}>
+                    <Text
+                      style={{
+                        marginTop: 29,
+                        fontSize: 30,
+                        textAlign: 'center',
+                        fontWeight: 'bold',
+                      }}>
+                      Object Tracking
+                    </Text>
+                  </TouchableOpacity>
+                )}
+                {!this.state.objectStatus && !this.state.warnStatus && (
+                  //오브젝트 키기 누를때 warn뜰 때
+                  <TouchableOpacity
+                    style={{
+                      marginTop: 750,
+                      width: 100,
+                      height: 100,
+                      borderRadius: 1000,
+                      opacity: 0.7,
+                    }}
+                    onPress={() => {
+                      this.setState({
+                        warnStatus: true,
+                        droneImage: require('../../../assets/img/warn_room.png'),
+                        info_statement: '2M 앞 장애물 주의',
+                        infoColor: 'red',
+                      });
+                    }}></TouchableOpacity>
+                )}
+                {this.state.objectStatus && !this.state.warnStatus && (
+                  <TouchableOpacity
+                    style={{
+                      marginTop: 750,
+                      width: 100,
+                      height: 100,
+                      borderRadius: 1000,
+                      opacity: 0.7,
+                    }}
+                    onPress={() => {
+                      this.setState({
+                        warnStatus: true,
+                        droneImage: require('../../../assets/img/warn_room_object.png'),
+                        info_statement: '2M 앞 장애물 주의',
+                        infoColor: 'red',
+                      });
+                    }}></TouchableOpacity>
+                )}
+                {this.state.objectStatus && this.state.warnStatus && (
+                  <TouchableOpacity
+                    style={{
+                      marginTop: 750,
+                      width: 100,
+                      height: 100,
+                      borderRadius: 1000,
+                      opacity: 0.7,
+                    }}
+                    onPress={() => {
+                      this.setState({
+                        warnStatus: false,
+                        droneImage: require('../../../assets/img/room_object.png'),
+                        info_statement: '우측으로 이동합니다.',
+                        infoColor: 'black',
+                      });
+                    }}></TouchableOpacity>
+                )}
+                {!this.state.objectStatus && this.state.warnStatus && (
+                  <TouchableOpacity
+                    style={{
+                      marginTop: 750,
+                      width: 100,
+                      height: 100,
+                      borderRadius: 1000,
+                      opacity: 0.7,
+                    }}
+                    onPress={() => {
+                      this.setState({
+                        warnStatus: false,
+                        droneImage: require('../../../assets/img/room.png'),
+                        info_statement: '우측으로 이동합니다.',
+                        infoColor: 'black',
+                      });
+                    }}></TouchableOpacity>
+                )}
                 <View
                   style={{
                     marginLeft: 450,
@@ -218,70 +342,191 @@ export default class MainScreen extends Component {
                   style={{
                     flexDirection: 'row',
                   }}>
-                  <TouchableOpacity
-                    style={{
-                      marginTop: 750,
-                      marginRight: 40,
-                      marginLeft: 40,
-                      width: 100,
-                      height: 100,
-                      borderRadius: 1000,
-                      backgroundColor: 'white',
-                      opacity: 0.7,
-                    }}
-                    onPress={() =>
-                      this.setState({info_statement: '드론이 착륙합니다.'})
-                    }>
-                    <Text
+                  {!this.state.stopStatus && (
+                    <TouchableOpacity
                       style={{
-                        marginTop: 29,
-                        fontSize: 30,
-                        textAlign: 'center',
-                        fontWeight: 'bold',
-                      }}>
-                      STOP
-                    </Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity
-                    style={{
-                      marginTop: 750,
-                      width: 100,
-                      height: 100,
-                      borderRadius: 1000,
-                      backgroundColor: 'white',
-                      opacity: 0.7,
-                    }}
-                    onPress={() => {
-                      this.setState({
-                        droneImage: require('../../../assets/img/drone_object.png'),
-                      });
-                    }}>
-                    <Text
+                        marginTop: 750,
+                        marginRight: 40,
+                        marginLeft: 40,
+                        width: 100,
+                        height: 100,
+                        borderRadius: 1000,
+                        backgroundColor: 'white',
+                        opacity: 0.7,
+                      }}
+                      onPress={() =>
+                        this.setState({
+                          stopStatus: true,
+                          info_statement: '드론이 착륙합니다.',
+                        })
+                      }>
+                      <Text
+                        style={{
+                          marginTop: 29,
+                          fontSize: 30,
+                          textAlign: 'center',
+                          fontWeight: 'bold',
+                        }}>
+                        STOP
+                      </Text>
+                    </TouchableOpacity>
+                  )}
+                  {this.state.stopStatus && (
+                    <TouchableOpacity
                       style={{
-                        marginTop: 29,
-                        fontSize: 30,
-                        textAlign: 'center',
-                        fontWeight: 'bold',
+                        marginTop: 750,
+                        marginRight: 40,
+                        marginLeft: 40,
+                        width: 100,
+                        height: 100,
+                        borderRadius: 1000,
+                        backgroundColor: 'white',
+                        opacity: 0.7,
+                      }}
+                      onPress={() =>
+                        this.setState({
+                          stopStatus: false,
+                          info_statement: '우측으로 이동합니다.',
+                        })
+                      }>
+                      <Text
+                        style={{
+                          marginTop: 29,
+                          fontSize: 30,
+                          textAlign: 'center',
+                          fontWeight: 'bold',
+                        }}>
+                        STOP
+                      </Text>
+                    </TouchableOpacity>
+                  )}
+                  {!this.state.objectStatus && (
+                    <TouchableOpacity
+                      style={{
+                        marginTop: 750,
+                        width: 100,
+                        height: 100,
+                        borderRadius: 1000,
+                        backgroundColor: 'white',
+                        opacity: 0.7,
+                      }}
+                      onPress={() => {
+                        this.setState({
+                          objectStatus: true,
+                          droneImage: require('../../../assets/img/room_object.png'),
+                        });
                       }}>
-                      Object Tracking
-                    </Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity
-                    style={{
-                      marginTop: 750,
-                      width: 100,
-                      height: 100,
-                      borderRadius: 1000,
-
-                      opacity: 0.7,
-                    }}
-                    onPress={() => {
-                      this.setState({
-                        droneImage: require('../../../assets/img/warn_objectTracking.png'),
-                        info_statement: '2M 앞 장애물 주의',
-                        infoColor: 'red',
-                      });
-                    }}></TouchableOpacity>
+                      <Text
+                        style={{
+                          marginTop: 29,
+                          fontSize: 30,
+                          textAlign: 'center',
+                          fontWeight: 'bold',
+                        }}>
+                        Object Tracking
+                      </Text>
+                    </TouchableOpacity>
+                  )}
+                  {this.state.objectStatus && (
+                    <TouchableOpacity
+                      style={{
+                        marginTop: 750,
+                        width: 100,
+                        height: 100,
+                        borderRadius: 1000,
+                        backgroundColor: 'white',
+                        opacity: 0.7,
+                      }}
+                      onPress={() => {
+                        this.setState({
+                          objectStatus: false,
+                          droneImage: require('../../../assets/img/room.png'),
+                        });
+                      }}>
+                      <Text
+                        style={{
+                          marginTop: 29,
+                          fontSize: 30,
+                          textAlign: 'center',
+                          fontWeight: 'bold',
+                        }}>
+                        Object Tracking
+                      </Text>
+                    </TouchableOpacity>
+                  )}
+                  {!this.state.objectStatus && !this.state.warnStatus && (
+                    //오브젝트 키기 누를때 warn뜰 때
+                    <TouchableOpacity
+                      style={{
+                        marginTop: 750,
+                        width: 100,
+                        height: 100,
+                        borderRadius: 1000,
+                        opacity: 0.7,
+                      }}
+                      onPress={() => {
+                        this.setState({
+                          warnStatus: true,
+                          droneImage: require('../../../assets/img/warn_room.png'),
+                          info_statement: '2M 앞 장애물 주의',
+                          infoColor: 'red',
+                        });
+                      }}></TouchableOpacity>
+                  )}
+                  {this.state.objectStatus && !this.state.warnStatus && (
+                    <TouchableOpacity
+                      style={{
+                        marginTop: 750,
+                        width: 100,
+                        height: 100,
+                        borderRadius: 1000,
+                        opacity: 0.7,
+                      }}
+                      onPress={() => {
+                        this.setState({
+                          warnStatus: true,
+                          droneImage: require('../../../assets/img/warn_room_object.png'),
+                          info_statement: '2M 앞 장애물 주의',
+                          infoColor: 'red',
+                        });
+                      }}></TouchableOpacity>
+                  )}
+                  {this.state.objectStatus && this.state.warnStatus && (
+                    <TouchableOpacity
+                      style={{
+                        marginTop: 750,
+                        width: 100,
+                        height: 100,
+                        borderRadius: 1000,
+                        opacity: 0.7,
+                      }}
+                      onPress={() => {
+                        this.setState({
+                          warnStatus: false,
+                          droneImage: require('../../../assets/img/room_object.png'),
+                          info_statement: '우측으로 이동합니다.',
+                          infoColor: 'black',
+                        });
+                      }}></TouchableOpacity>
+                  )}
+                  {!this.state.objectStatus && this.state.warnStatus && (
+                    <TouchableOpacity
+                      style={{
+                        marginTop: 750,
+                        width: 100,
+                        height: 100,
+                        borderRadius: 1000,
+                        opacity: 0.7,
+                      }}
+                      onPress={() => {
+                        this.setState({
+                          warnStatus: false,
+                          droneImage: require('../../../assets/img/room.png'),
+                          info_statement: '우측으로 이동합니다.',
+                          infoColor: 'black',
+                        });
+                      }}></TouchableOpacity>
+                  )}
                   <View
                     style={{
                       marginLeft: 450,
