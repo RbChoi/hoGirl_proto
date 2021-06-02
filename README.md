@@ -31,3 +31,5 @@
 ## 구현 참고자료
 + mediapipe 
 https://www.youtube.com/watch?v=NZde8Xt78Iw&t=2s
++ parrot
+https://developer.parrot.com
