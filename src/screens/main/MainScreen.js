@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Alert} from 'react-native';
 import {
   StyleSheet,
   Text,
@@ -180,9 +181,10 @@ export default class MainScreen extends Component {
                     }}
                     onPress={() => {
                       this.setState({
-                        objectStatus: true,
-                        droneImage: require('../../../assets/img/room_object.png'),
+                        //objectStatus: true,
+                        //droneImage: require('../../../assets/img/room_object.png'),
                       });
+                      Alert.alert('드론이 홈으로 돌아갑니다.');
                     }}>
                     <Text
                       style={{
@@ -191,7 +193,7 @@ export default class MainScreen extends Component {
                         textAlign: 'center',
                         fontWeight: 'bold',
                       }}>
-                      Object Tracking
+                      Home
                     </Text>
                   </TouchableOpacity>
                 )}
@@ -207,9 +209,10 @@ export default class MainScreen extends Component {
                     }}
                     onPress={() => {
                       this.setState({
-                        objectStatus: false,
-                        droneImage: require('../../../assets/img/room.png'),
+                        //objectStatus: false,
+                        //droneImage: require('../../../assets/img/room.png'),
                       });
+                      Alert.alert('드론이 홈으로 돌아갑니다.');
                     }}>
                     <Text
                       style={{
@@ -218,7 +221,7 @@ export default class MainScreen extends Component {
                         textAlign: 'center',
                         fontWeight: 'bold',
                       }}>
-                      Object Tracking
+                      Home
                     </Text>
                   </TouchableOpacity>
                 )}
@@ -411,10 +414,11 @@ export default class MainScreen extends Component {
                         opacity: 0.7,
                       }}
                       onPress={() => {
-                        this.setState({
-                          objectStatus: true,
-                          droneImage: require('../../../assets/img/room_object.png'),
-                        });
+                        // this.setState({
+                        //   objectStatus: true,
+                        //   droneImage: require('../../../assets/img/room_object.png'),
+                        // });
+                        Alert.alert('드론이 홈으로 돌아갑니다.');
                       }}>
                       <Text
                         style={{
@@ -423,7 +427,7 @@ export default class MainScreen extends Component {
                           textAlign: 'center',
                           fontWeight: 'bold',
                         }}>
-                        Object Tracking
+                        Home
                       </Text>
                     </TouchableOpacity>
                   )}
@@ -438,10 +442,11 @@ export default class MainScreen extends Component {
                         opacity: 0.7,
                       }}
                       onPress={() => {
-                        this.setState({
-                          objectStatus: false,
-                          droneImage: require('../../../assets/img/room.png'),
-                        });
+                        // this.setState({
+                        //   objectStatus: false,
+                        //   droneImage: require('../../../assets/img/room.png'),
+                        // });
+                        Alert.alert('드론이 홈으로 돌아갑니다.');
                       }}>
                       <Text
                         style={{
@@ -450,7 +455,7 @@ export default class MainScreen extends Component {
                           textAlign: 'center',
                           fontWeight: 'bold',
                         }}>
-                        Object Tracking
+                        Home
                       </Text>
                     </TouchableOpacity>
                   )}
