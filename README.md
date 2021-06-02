@@ -1,4 +1,5 @@
 # hoGirl
+
 ### 호걸 유튜브 채널
 
 ### 호걸 시현영상 링크
@@ -27,7 +28,8 @@
 2. 손 인식
 3. 제스처에 따른 드론 제어
 
-### 프로젝트 예상 아키텍처
+### 프로젝트 핵심 기술
+<img width="90%" alt="KakaoTalk_Photo_2021-06-02-22-28-23" src="https://user-images.githubusercontent.com/60884739/120488542-dbf91180-c3f1-11eb-8d39-7d05b246616d.png">
 
 
 ## 구현 참고자료
@@ -35,3 +37,7 @@
 https://www.youtube.com/watch?v=NZde8Xt78Iw&t=2s
 + parrot
 https://developer.parrot.com
+
+--------------
+<img width="20%" alt="logo" src="https://user-images.githubusercontent.com/60884739/120488805-12369100-c3f2-11eb-8a40-c97b0fd4d81e.png">
+
