@@ -239,7 +239,7 @@ export default class MainScreen extends Component {
                       this.setState({
                         warnStatus: true,
                         droneImage: require('../../../assets/img/warn_room.png'),
-                        info_statement: '2M 앞 장애물 주의',
+                        info_statement: '1.5M 앞 장애물 주의',
                         infoColor: 'red',
                       });
                     }}></TouchableOpacity>
@@ -257,7 +257,7 @@ export default class MainScreen extends Component {
                       this.setState({
                         warnStatus: true,
                         droneImage: require('../../../assets/img/warn_room_object.png'),
-                        info_statement: '2M 앞 장애물 주의',
+                        info_statement: '1.5M 앞 장애물 주의',
                         infoColor: 'red',
                       });
                     }}></TouchableOpacity>
@@ -473,7 +473,7 @@ export default class MainScreen extends Component {
                         this.setState({
                           warnStatus: true,
                           droneImage: require('../../../assets/img/warn_room.png'),
-                          info_statement: '2M 앞 장애물 주의',
+                          info_statement: '1.5M 앞 장애물 주의',
                           infoColor: 'red',
                         });
                       }}></TouchableOpacity>
@@ -491,7 +491,7 @@ export default class MainScreen extends Component {
                         this.setState({
                           warnStatus: true,
                           droneImage: require('../../../assets/img/warn_room_object.png'),
-                          info_statement: '2M 앞 장애물 주의',
+                          info_statement: '1.5M 앞 장애물 주의',
                           infoColor: 'red',
                         });
                       }}></TouchableOpacity>
