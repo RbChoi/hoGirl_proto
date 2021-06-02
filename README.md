@@ -8,7 +8,7 @@
 
 ### 프로젝트 레포지토리 정리
 + https://github.com/RbChoi/Verification_OpenCV : mediapipe의 hand tracking을 통한 간단한 손 검출 코드
-+ unity : 
++ https://github.com/Juny-57/Unity : 키보드 조작을 통해 유니티에서 객체를 조종하는 코드
 
 
 ### 프로젝트의 목적
