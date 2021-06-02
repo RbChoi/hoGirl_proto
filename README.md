@@ -3,6 +3,8 @@
 
 ### 호걸 시현영상 링크
 
+### 호걸 notion 링크
++ https://www.notion.so/3fbcbdb4d4ee4c7d85809c8261e8d1b5
 
 # hoGirl project
 
