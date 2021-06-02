@@ -120,13 +120,13 @@ export default class MainScreen extends Component {
                       width: 100,
                       height: 100,
                       borderRadius: 1000,
-                      backgroundColor: 'white',
+                      backgroundColor: '#dc143c',
                       opacity: 0.7,
                     }}
                     onPress={() =>
                       this.setState({
                         stopStatus: true,
-                        info_statement: '드론이 착륙합니다.',
+                        info_statement: '드론이 멈춥니다.',
                       })
                     }>
                     <Text
@@ -149,7 +149,7 @@ export default class MainScreen extends Component {
                       width: 100,
                       height: 100,
                       borderRadius: 1000,
-                      backgroundColor: 'white',
+                      backgroundColor: '#dc143c',
                       opacity: 0.7,
                     }}
                     onPress={() =>
@@ -169,6 +169,32 @@ export default class MainScreen extends Component {
                     </Text>
                   </TouchableOpacity>
                 )}
+                <TouchableOpacity
+                  style={{
+                    marginTop: 750,
+                    marginRight: 40,
+                    width: 100,
+                    height: 100,
+                    borderRadius: 1000,
+                    backgroundColor: 'white',
+                    opacity: 0.7,
+                  }}
+                  onPress={() =>
+                    this.setState({
+                      stopStatus: true,
+                      info_statement: '드론이 착륙합니다.',
+                    })
+                  }>
+                  <Text
+                    style={{
+                      marginTop: 29,
+                      fontSize: 30,
+                      textAlign: 'center',
+                      fontWeight: 'bold',
+                    }}>
+                    Land
+                  </Text>
+                </TouchableOpacity>
                 {!this.state.objectStatus && (
                   <TouchableOpacity
                     style={{
@@ -183,6 +209,7 @@ export default class MainScreen extends Component {
                       this.setState({
                         //objectStatus: true,
                         //droneImage: require('../../../assets/img/room_object.png'),
+                        info_statement: '홈으로 이동 중...',
                       });
                       Alert.alert('드론이 홈으로 돌아갑니다.');
                     }}>
@@ -211,6 +238,7 @@ export default class MainScreen extends Component {
                       this.setState({
                         //objectStatus: false,
                         //droneImage: require('../../../assets/img/room.png'),
+                        info_statement: '홈으로 이동 중...',
                       });
                       Alert.alert('드론이 홈으로 돌아갑니다.');
                     }}>
@@ -300,7 +328,7 @@ export default class MainScreen extends Component {
                 )}
                 <View
                   style={{
-                    marginLeft: 450,
+                    marginLeft: 300,
                     height: 300,
                     width: 500,
                     alignItems: 'flex-end',
@@ -354,13 +382,13 @@ export default class MainScreen extends Component {
                         width: 100,
                         height: 100,
                         borderRadius: 1000,
-                        backgroundColor: 'white',
+                        backgroundColor: '#dc143c',
                         opacity: 0.7,
                       }}
                       onPress={() =>
                         this.setState({
                           stopStatus: true,
-                          info_statement: '드론이 착륙합니다.',
+                          info_statement: '드론이 멈춥니다.',
                         })
                       }>
                       <Text
@@ -383,7 +411,7 @@ export default class MainScreen extends Component {
                         width: 100,
                         height: 100,
                         borderRadius: 1000,
-                        backgroundColor: 'white',
+                        backgroundColor: '#dc143c',
                         opacity: 0.7,
                       }}
                       onPress={() =>
@@ -403,6 +431,32 @@ export default class MainScreen extends Component {
                       </Text>
                     </TouchableOpacity>
                   )}
+                  <TouchableOpacity
+                    style={{
+                      marginTop: 750,
+                      marginRight: 40,
+                      width: 100,
+                      height: 100,
+                      borderRadius: 1000,
+                      backgroundColor: 'white',
+                      opacity: 0.7,
+                    }}
+                    onPress={() =>
+                      this.setState({
+                        stopStatus: true,
+                        info_statement: '드론이 착륙합니다.',
+                      })
+                    }>
+                    <Text
+                      style={{
+                        marginTop: 29,
+                        fontSize: 30,
+                        textAlign: 'center',
+                        fontWeight: 'bold',
+                      }}>
+                      Land
+                    </Text>
+                  </TouchableOpacity>
                   {!this.state.objectStatus && (
                     <TouchableOpacity
                       style={{
@@ -414,10 +468,11 @@ export default class MainScreen extends Component {
                         opacity: 0.7,
                       }}
                       onPress={() => {
-                        // this.setState({
-                        //   objectStatus: true,
-                        //   droneImage: require('../../../assets/img/room_object.png'),
-                        // });
+                        this.setState({
+                          //   objectStatus: true,
+                          //   droneImage: require('../../../assets/img/room_object.png'),
+                          info_statement: '홈으로 이동 중...',
+                        });
                         Alert.alert('드론이 홈으로 돌아갑니다.');
                       }}>
                       <Text
@@ -442,10 +497,11 @@ export default class MainScreen extends Component {
                         opacity: 0.7,
                       }}
                       onPress={() => {
-                        // this.setState({
-                        //   objectStatus: false,
-                        //   droneImage: require('../../../assets/img/room.png'),
-                        // });
+                        this.setState({
+                          //   objectStatus: false,
+                          //   droneImage: require('../../../assets/img/room.png'),
+                          info_statement: '홈으로 이동 중...',
+                        });
                         Alert.alert('드론이 홈으로 돌아갑니다.');
                       }}>
                       <Text
