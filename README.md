@@ -1,8 +1,10 @@
 # hoGirl
 
 ### 호걸 유튜브 채널
+https://www.youtube.com/channel/UCUP4IStWNEei6lNwVRUca2Q
 
 ### 호걸 시현영상 링크
+https://youtu.be/3IVgBmttj68
 
 ### 호걸 notion 링크
 + https://www.notion.so/3fbcbdb4d4ee4c7d85809c8261e8d1b5
